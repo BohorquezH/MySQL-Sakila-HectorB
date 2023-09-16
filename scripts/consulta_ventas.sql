@@ -29,7 +29,15 @@ ventasxtiendaxmes as (
         SUM(case when year=2005 and month=7 then amount else 0 end) as jul2005
     from ventas_tienda_annoxmes
     GROUP BY store
+), -- calcula las diferencias 
+ventasxtienda_comparativa as (
+    SELECT 
+        store, may2005, jun2005,
+        (jun2005 - may2005) as diffjun2005,
+        jul2005,
+        (jul2005 - jun2005) as diffjul2005
+    FROM ventasxtiendaxmes
 )
 select *
-from ventasxtiendaxmes
+from ventasxtienda_comparativa
 limit 5;
