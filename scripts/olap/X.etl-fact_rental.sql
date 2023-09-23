@@ -1,3 +1,10 @@
+INSERT INTO sakila_dwh.fac_rental(
+    rental_id,
+    date_key,
+    store_key,
+    customer_key,
+    count_rental
+)
 WITH datos AS (
         SELECT
             rental_id, rental_date,
@@ -11,6 +18,10 @@ WITH datos AS (
             JOIN sakila.staff USING(staff_id)
             JOIN sakila_dwh.dim_store USING(store_id)
 )
-SELECT * 
-FROM datos 
-LIMIT 5; 
+SELECT 
+    rental_id,
+    date_key,
+    store_key,
+    customer_key,
+    1 AS count_rental
+FROM datos  
