@@ -19,6 +19,38 @@ CREATE TABLE IF NOT EXISTS dim_time(
 );
 -- TODO FK deberia tener una llave
 
+-- Dimension Tienda
+CREATE TABLE IF NOT EXISTS  dim_store(
+    store_key INT NOT NULL AUTO_INCREMENT,
+    store_id TINYINT(8) NOT NULL,
+    store VARCHAR(20) NOT NULL,
+    district VARCHAR(50) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    country VARCHAR(50) NOT NULL,
+    last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    PRIMARY KEY(store_key),
+    UNIQUE INDEX store_id(store_id)
+);
+
+
+-- Dimension Cliente
+CREATE TABLE IF NOT EXISTS  dim_customer(
+    customer_key INT NOT NULL AUTO_INCREMENT,
+    customer_id SMALLINT(8) NOT NULL,
+    customer VARCHAR(90) NOT NULL,
+    district VARCHAR(50) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    country VARCHAR(50) NOT NULL,
+    last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    PRIMARY KEY(customer_key),
+    UNIQUE INDEX store_id(customer_id)
+);
+
+
+
+
 CREATE TABLE IF NOT EXISTS fac_rental(
     rental_key INT(8) NOT NULL AUTO_INCREMENT,
     rental_id INT(11) NOT NULL,
