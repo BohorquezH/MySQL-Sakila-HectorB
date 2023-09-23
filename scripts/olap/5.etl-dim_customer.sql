@@ -1,13 +1,13 @@
 USE sakila;
 
-INSERT INTO sakila_dwh.dim_store(
+INSERT INTO sakila_dwh.dim_customer(
     customer_id, customer, district, city, country
 ) 
 SELECT 
     c.customer_id,
     CONCAT(c.last_name,' ',c.first_name) AS customer,
     ad.district, 
-    ci.city_id,
+    ci.city,
     co.country
 FROM customer AS c
     JOIN address AS ad USING(address_id)

@@ -54,14 +54,19 @@ CREATE TABLE IF NOT EXISTS  dim_customer(
 CREATE TABLE IF NOT EXISTS fac_rental(
     rental_key INT(8) NOT NULL AUTO_INCREMENT,
     rental_id INT(11) NOT NULL,
+    
     date_key INT(8) NOT NULL,
+    store_key INT(8) NOT NULL,
+    customer_key INT(8) NOT NULL,
+
     count_rental INT(11) NOT NULL,
 
     PRIMARY KEY(rental_key),
     UNIQUE INDEX rental_id (rental_id),
-
-    INDEX date_key (date_key),
-    FOREIGN KEY (date_key) REFERENCES dim_time(date_key) 
+    INDEX store_key (store_key),
+    FOREIGN KEY (store_key) REFERENCES dim_store(store_key) 
+    INDEX customer_key (customer_key),
+    FOREIGN KEY (customer_key) REFERENCES dim_customer(customer_key)
 );
 
 -- ALTER TABLE dim_time CHANGE column `dete_value` `date_value` date;

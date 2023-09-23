@@ -41,10 +41,12 @@
 
 
 **Fact_Alquiler**
-|Columna        |Tipo       |Restricciones      |
-|-----------    |-------    |---------------    |
-|rental_key     |int(8)     |PK,NN              |
-|rental_id      |int        |UK,NN              |
-|date_key       |int        |FK(dim_date), NN   |
-|count_rental   |int        |NN                 |
+|Columna            |Tipo       |Restricciones          |
+|-----------        |-------    |---------------        |
+|rental_key         |int(8)     |PK,NN                  |
+|rental_id          |int        |UK,NN                  |
+|date_key           |int        |FK(dim_date), NN       |
+|store_key          |int        |FK(dim_sotre),NN       |
+|customer_key       |int        |FK(dim_customer),NN    |
+|count_rental       |int        |NN                     |
 
