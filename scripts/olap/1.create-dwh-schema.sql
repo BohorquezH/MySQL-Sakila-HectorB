@@ -63,8 +63,10 @@ CREATE TABLE IF NOT EXISTS fac_rental(
 
     PRIMARY KEY(rental_key),
     UNIQUE INDEX rental_id (rental_id),
+    INDEX date_key (date_key),
+    FOREIGN KEY (date_key) REFERENCES dim_time(date_key), 
     INDEX store_key (store_key),
-    FOREIGN KEY (store_key) REFERENCES dim_store(store_key) 
+    FOREIGN KEY (store_key) REFERENCES dim_store(store_key), 
     INDEX customer_key (customer_key),
     FOREIGN KEY (customer_key) REFERENCES dim_customer(customer_key)
 );
